@@ -7,6 +7,6 @@ def twoSum(nums, target):
     return []
 
 
-nums = [3, 2, 4]
+nums = [3, 3]
 target = 6
 print(twoSum(nums, target))

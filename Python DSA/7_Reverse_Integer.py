@@ -3,7 +3,7 @@ def reverse(x):
     x = x * sign
     reverse = 0
     while x > 0:
-        digit = x % 10
+        digit = x % 10  # to find the last digit
         reverse = (reverse * 10) + digit
         x = x // 10
 
