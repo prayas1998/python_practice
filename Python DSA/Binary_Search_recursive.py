@@ -1,25 +1,22 @@
-# Recursive approach
+def search(nums, left, right, target):
+    if not nums:
+        return -1
 
-import math
+    while left <= right:
+        mid = (left + right) // 2
 
+        if nums[mid] == target:
+            return mid
 
-def binarySearch(arr, start, end, target):
-    mid = math.floor((start + end) / 2)
+        if nums[mid] > target:
+            return search(nums, left, mid - 1, target)
+        else:
+            return search(nums, mid + 1, right, target)
 
-    if start > end:
-        return "Cannot find number"
-
-    if arr[mid] == target:
-        return f"target is at index: {mid}"
-
-    elif target > arr[mid]:
-        return binarySearch(arr, mid + 1, end, target)
-
-    else:
-        return binarySearch(arr, start, mid - 1, target)
+    return -1
 
 
-nums = [1, 3, 5, 7, 9, 11]
-target = 7
+nums = [2, 3, 4, 5, 6, 7, 8]
+target = 10
 
-print(binarySearch(nums, 0, len(nums) - 1, target))
+print(search(nums, 0, len(nums) - 1, target))
